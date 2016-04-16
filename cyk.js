@@ -3,14 +3,7 @@ function doCYK(word, grammarArray)
  
     var CYKArray = new Array();
     var CYKWord = word;
-    grammarArray = new Array();
-    grammarArray.push({start:"S", end:"AB"});
-    grammarArray.push({start:"A", end:"BB"});
-    grammarArray.push({start:"A", end:"a"});
-    grammarArray.push({start:"B", end:"AB"});
-    grammarArray.push({start:"B", end:"b"});
-    
-    CYKWord = "aabbb";
+   
     
     
     for(var row = 0; row < CYKWord.length; row ++)
@@ -51,7 +44,7 @@ function doCYK(word, grammarArray)
             
         }
     }
-    alert("fail");
+    return CYKArray;
     
     function checkIfGrammar(start,grammarArray)
     {
@@ -83,5 +76,18 @@ function doCYK(word, grammarArray)
     function distinct(value,index,self)
     {
         return self.indexOf(value) == index;
+    }
+    function evaluate (CYKArray, grammarArray)
+    {
+        var completedBox = CYKArray[CYKArray.length-1][0];
+        for(var i = 0; i< completedBox; i++)
+        {
+        if(grammarArray[0].start == completedBox[i])
+        {
+            return true;
+           }
+        }
+        return false;
+           
     }
 }
