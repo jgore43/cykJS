@@ -24,10 +24,15 @@ function drawArray(CYKArray)
     {
         for(var innerIndex = 0; innerIndex < CYKArray[outerIndex].length; innerIndex++)
         {
+            if(CYKArray[outerIndex][innerIndex].length == 0)
+            {
+                $("#"+outerIndex+innerIndex).append("-");
+            }
             for(var characterArrayIndex = 0; characterArrayIndex < CYKArray[outerIndex][innerIndex].length; characterArrayIndex++)
             {
                 $("#"+outerIndex+innerIndex).append(CYKArray[outerIndex][innerIndex][characterArrayIndex]);
             }
+            
         }
     }
 }
